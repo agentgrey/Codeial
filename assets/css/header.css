@@ -1,0 +1,69 @@
+header{
+    height: 60px;
+    background: seagreen;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.heading{
+    margin-left: 10px;
+    color: wheat;
+    font-size: 45px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.heading  a{
+    color: wheat;
+    text-decoration: none;
+}
+
+.auth{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.signIn{
+    /* color: yellow; */
+    font-size: 25px;
+    margin-top: 10px;
+}
+.signIn a {
+    color: wheat;
+    text-decoration: none;
+}
+
+.signUp{
+    /* color: yellow; */
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.signUp a {
+    color: wheat;
+    text-decoration: none;
+}
+
+.profile{
+    /* color: yellow; */
+    font-size: 25px;
+    margin-top: 10px;
+}
+.profile a {
+    color: wheat;
+    text-decoration: none;
+}
+
+.signOut{
+    /* color: yellow; */
+    font-size: 25px;
+    /* margin-top: 10px; */
+    margin: 10px 10px ;
+}
+.signOut a {
+    color: wheat;
+    text-decoration: none;
+}
+
