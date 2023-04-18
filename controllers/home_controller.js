@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+const User = require('../models/user')
 
 module.exports.home = async function(req, res){
     // console.log(req.cookies);
@@ -12,12 +13,13 @@ module.exports.home = async function(req, res){
         }
     );
 
-    
-
-    console.log(post);
+    let users = await User.find({});
+    //console.log(users);
+    //console.log(post);
     return res.render('home', {
         title: "Codial | Home",
-        posts : post
+        posts : post,
+        allUser : users
     });
 }
 

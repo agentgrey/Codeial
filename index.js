@@ -10,7 +10,8 @@ const passport = require('passport');
 const passportLocal  = require('./config/passport-local-strategy');
 //const mongoStore = require('connect-mongo'); // if you get error check here
 const MongoStore = require('connect-mongo');
-
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
 
 
 app.use(express.urlencoded()); 
@@ -56,6 +57,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+
+app.use(flash());
+app.use(customMware.setFlash);
 
 // use express router
 app.use('/', require('./routes'));

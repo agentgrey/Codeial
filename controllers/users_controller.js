@@ -1,10 +1,24 @@
 const User = require('../models/user');
 
 
-module.exports.profile = function(req, res){
+module.exports.profile = async function(req, res){
+    let user = await User.findById(req.params.id);
+    //console.log(user + " from user_controller");
     return res.render('user_profile', {
-        title: 'User Profile'
+        title: 'User Profile',
+        profileUser : user
     })
+}
+
+module.exports.update = async function(req, res){
+    if(req.user.id == req.params.id){
+        
+        let user = await User.findByIdAndUpdate(req.params.id, req.body);
+        //console.log(user);
+        return res.redirect('back');
+    }else{
+        return res.status(401).send('Unathaurized');
+    }
 }
 
 
@@ -52,10 +66,18 @@ module.exports.create = async function(req, res){
 
 // sign in and create a session for the user
 module.exports.createSession = function(req, res){
+    //req.flash('success', 'Logged in succesfull');
+    req.flash('success', 'Logged in Successfully');
     return res.redirect('/');
 }
 
-module.exports.destroySession = function(req, res){
-    req.logout();
+module.exports.destroySession = function(req, res, done){
+    req.flash('success', 'Logged out Successfully');
+    req.logout((err) => {
+        if (err) {
+            return done(err);
+        }
+    })
     return res.redirect('/');
+    
 }
