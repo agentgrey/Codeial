@@ -9,9 +9,21 @@ module.exports.create = async function(req, res){
             post : req.body.post,
             user : req.user._id
         })
+        req.flash('success', 'New Comment Added');
         post.comments.push(comment);
+
         post.save();
 
+        if(req.xhr){
+            comment = await comment.populate('user', 'name');
+    
+                return res.status(200).json({
+                    data: {
+                        comment: comment
+                    },
+                    message: "Post created!"
+                });
+        }
         res.redirect('back');
     }
 }
@@ -23,6 +35,7 @@ module.exports.destroy = async function(req, res){
         await Comment.deleteOne({_id : req.params.id});
         // await Post.findById(postId, {$pull : {comments : req.params.id}});
         await Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
+        req.flash('success', 'Comment deleted');
     }
     return res.redirect('back');
 }

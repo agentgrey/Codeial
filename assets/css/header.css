@@ -1,69 +1,20 @@
-header{
-    height: 60px;
-    background: seagreen;
+#layout-header nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  background: #2196f3;
+  color: white;
+  box-shadow: 1px 1px 1px 1px lightgrey; }
+  #layout-header nav .mini-logo p {
+    margin: 5px;
+    font-size: 1.4rem;
+    font-weight: bold; }
+  #layout-header nav .auth-links ul {
+    margin: 5% 5px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.heading{
-    margin-left: 10px;
-    color: wheat;
-    font-size: 45px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.heading  a{
-    color: wheat;
-    text-decoration: none;
-}
-
-.auth{
-    display: flex;
-    flex-direction: row;
-    
-}
-
-.signIn{
-    /* color: yellow; */
-    font-size: 25px;
-    margin-top: 10px;
-}
-.signIn a {
-    color: wheat;
-    text-decoration: none;
-}
-
-.signUp{
-    /* color: yellow; */
-    font-size: 25px;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.signUp a {
-    color: wheat;
-    text-decoration: none;
-}
-
-.profile{
-    /* color: yellow; */
-    font-size: 25px;
-    margin-top: 10px;
-}
-.profile a {
-    color: wheat;
-    text-decoration: none;
-}
-
-.signOut{
-    /* color: yellow; */
-    font-size: 25px;
-    /* margin-top: 10px; */
-    margin: 10px 10px ;
-}
-.signOut a {
-    color: wheat;
-    text-decoration: none;
-}
-
+    list-style: none; }
+    #layout-header nav .auth-links ul li {
+      margin-right: 10px; }
+  #layout-header nav a {
+    color: white;
+    text-decoration: none; }

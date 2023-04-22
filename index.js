@@ -8,11 +8,13 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal  = require('./config/passport-local-strategy');
+const passportJWT = require('./config/passport-jwt-strategy');
 //const mongoStore = require('connect-mongo'); // if you get error check here
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
-
+//make uploads part available to the broweser
+app.use('/uploads', express.static(__dirname + '/uploads'))
 
 app.use(express.urlencoded()); 
 

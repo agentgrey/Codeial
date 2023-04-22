@@ -1,31 +1,37 @@
-<link rel="stylesheet" href="/css/header.css">
-<header>
-    <div class="heading">
-        <a href="/">COdeAl</a>
-    </div>
-    <div class="auth">
-        <%if (locals.user) { %>
-            <div class="profile">
-                <a href="/users/profile">
-                    <%= user.name%>
+<header id="layout-header">
+    <nav>
+        <div class="mini-logo">
+            <p>
+                <a href='/'>
+                    codeial
                 </a>
-            </div>
-            <div class="signOut">
-                <a href="/users/sign-out">Sign Out</a>
-            </div>
+            </p>
+        </div>
+    
+        <div class="auth-links">
+            <ul>
+                <% if (locals.user){ %>
+                <li>
+                    <a href="/users/profile/<%= locals.user.id%>">
+                        <%= user.name%>
+                    </a>
+                </li>
+                <li>
+                    <a href="/users/sign-out">Sign Out</a>
+                </li>
+                <% }else{ %>
+                <li>
+                    <a href="/users/sign-in">Sign In</a>
+                </li>
+                <li>
+                    <a href="/users/sign-up">Sign Up</a>
+                </li>
+        
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+ 
 
-        <%} else {%>   
-            
-            <div class="signIn">
-                <a href="/users/sign-in">SignIN</a>
-            </div>
 
-            <div class = "signUp">
-                <a href="/users/sign-up">SignUP</a>
-            </div>
-
-         <%}%>   
-    </div>
-
-    <!-- Page Header -->
 </header>

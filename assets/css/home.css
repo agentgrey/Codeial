@@ -1,16 +1,10 @@
-.homeContainer{
-    display: flex;
-}
-
-.homeContainer #feed-post{
+#home-container {
+  display: flex; }
+  #home-container #feed-posts {
     width: 70%;
-    padding: 10px;
-    height: 100%;
-}
-
-.homeContainer #users-friend{
+    padding: 10px; }
+  #home-container #user-friends {
     width: 30%;
     padding: 10px;
-    border: 1px solid lightblue;
-    height: 100%;
-}
+    border-left: 1px solid lightgrey;
+    height: 100%; }
