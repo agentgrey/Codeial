@@ -91,7 +91,14 @@ module.exports.createSession = function(req, res){
 }
 
 module.exports.destroySession = function(req, res){
-    req.logout();
-    req.flash('success', 'You have logged out!');
-    return res.redirect('/');
+    req.flash('success' , 'Logged Out');
+    req.logout((err) => {
+        if (err) {
+            return done(err);
+        }
+    })
+    return res.redirect('/users/sign-in');
 }
+
+
+// forrget password page
