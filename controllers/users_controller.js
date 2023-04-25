@@ -102,3 +102,24 @@ module.exports.destroySession = function(req, res){
 
 
 // forrget password page
+module.exports.forgetPasswordPage = function(req, res){
+    return res.render('forget_password',{
+        title : 'Forget Password'
+    });
+}
+
+module.exports.forgetPasswordLink = async function(req, res){
+    let user = await User.findOne({ email: req.body.email });
+    // console.log(user);
+    //console.log(req.body);
+    if(!user){
+        return res.redirect('/users/sign-up');
+    }
+    if(req.body.password == req.body.confirmPassword){
+        user.password = req.body.password;
+        await user.updateOne({password : req.body.password});
+        return res.redirect('/users/sign-in');
+    }
+    return res.redirect('back');
+
+}

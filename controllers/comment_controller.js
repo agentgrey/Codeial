@@ -47,6 +47,9 @@ module.exports.destroy = async function(req, res){
         await Comment.deleteOne({_id : req.params.id});
         // await Post.findById(postId, {$pull : {comments : req.params.id}});
         await Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
+
+        await Like.deleteMany({likeable: comment._id, onModel:"Comment"});
+        
         req.flash('success', 'Comment deleted');
     }
     return res.redirect('back');

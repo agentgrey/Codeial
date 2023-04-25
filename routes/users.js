@@ -23,6 +23,11 @@ router.post('/create-session', passport.authenticate(
 
 router.get('/sign-out', usersController.destroySession);
 
+// Forget password.
+router.get('/forget-password' , usersController.forgetPasswordPage);
+router.post('/forget-password-page' , usersController.forgetPasswordLink);
+
+
 router.get('/auth/google', passport.authenticate('google', {scope : ['profile', 'email']}));
 router.get('/auth/google/callback' , passport.authenticate('google', {failureRedirect: '/users/sign-in'}) , usersController.createSession);
 
