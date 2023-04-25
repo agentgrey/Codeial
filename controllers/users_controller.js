@@ -111,7 +111,6 @@ module.exports.forgetPasswordPage = function(req, res){
 module.exports.forgetPasswordLink = async function(req, res){
     let user = await User.findOne({ email: req.body.email });
     // console.log(user);
-    //console.log(req.body);
     if(!user){
         return res.redirect('/users/sign-up');
     }
